@@ -1,0 +1,31 @@
+'use strict'
+
+module.exports = {
+  toString: require('./toString'),
+  replace: require('./replace'),
+  trim: require('./trim'),
+  trimLeft: require('./trimLeft'),
+  trimRight: require('./trimRight'),
+  leftPad: require('./leftPad'),
+  pad: require('./pad'),
+  rightPad: require('./rightPad'),
+  startsWith: require('./startsWith'),
+  endsWith: require('./endsWith'),
+  camelCase: require('./camelCase'),
+  stripAnsi: require('./stripAnsi'),
+  hasAnsi: require('./hasAnsi'),
+  format: require('./format'),
+  length: require('./length'),
+  kebabCase: require('./kebabCase'),
+  deburr: require('./deburr'),
+  toUpper: require('./toUpper'),
+  toLower: require('./toLower'),
+  isString: require('./isString'),
+  split: require('./split'),
+  concat: require('./concat'),
+  capitalize: require('./capitalize'),
+  reverse: require('./reverse'),
+  slugify: require('./slugify'),
+  toQuery: require('./toQuery'),
+  fromQuery: require('./fromQuery')
+}

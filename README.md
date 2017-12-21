@@ -1,0 +1,3 @@
+# mellotron
+
+Synthetic string orchestra
