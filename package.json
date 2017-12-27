@@ -1,9 +1,12 @@
 {
   "name": "mellotron",
-  "version": "0.0.3",
+  "version": "0.0.6",
   "description": "Synthetic string orchestra",
-  "main": "index.js",
-  "scripts": {},
+  "main": "dist/mellotron.js",
+  "scripts": {
+    "prebuild": "rimraf ./dist",
+    "build": "webpack --output-filename mellotron.js"
+  },
   "keywords": [
     "string"
   ],
@@ -23,12 +26,17 @@
     "strip-ansi": "^4.0.0"
   },
   "devDependencies": {
+    "babel": "6.23.0",
+    "babel-cli": "6.26.0",
+    "babel-loader": "7.1.2",
     "eslint": "4.14.0",
     "eslint-config-standard": "10.2.1",
     "eslint-plugin-import": "2.8.0",
     "eslint-plugin-node": "4.2.2",
     "eslint-plugin-promise": "3.5.0",
-    "eslint-plugin-standard": "3.0.1"
+    "eslint-plugin-standard": "3.0.1",
+    "rimraf": "2.6.2",
+    "webpack": "3.10.0"
   },
   "repository": "https://github.com/ecancino/mellotron.git"
 }
