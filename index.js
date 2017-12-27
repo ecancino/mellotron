@@ -27,5 +27,6 @@ module.exports = {
   reverse: require('./reverse'),
   slugify: require('./slugify'),
   toQuery: require('./toQuery'),
-  fromQuery: require('./fromQuery')
+  fromQuery: require('./fromQuery'),
+  join: require('./join')
 }
