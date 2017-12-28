@@ -1,11 +1,12 @@
 {
   "name": "mellotron",
-  "version": "0.0.7",
-  "description": "Synthetic string orchestra",
+  "version": "0.0.8",
+  "description": "Synthetic string orchestra. Curated string manipulation library",
   "main": "dist/mellotron.js",
   "scripts": {
     "prebuild": "rimraf ./dist",
-    "build": "webpack --output-filename mellotron.js"
+    "build": "webpack --output-filename mellotron.js",
+    "dox": "doxdox '*.js' --layout markdown --output README.md"
   },
   "keywords": [
     "string"
@@ -14,21 +15,21 @@
   "license": "MIT",
   "dependencies": {
     "astral-regex": "1.0.0",
-    "capitalize": "^1.0.0",
+    "capitalize": "1.0.0",
     "chars": "2.2.0",
     "has-ansi": "^3.0.0",
     "lodash": "4.17.4",
-    "query-string": "^5.0.1",
+    "query-string": "5.0.1",
     "ramda": "0.23.0",
-    "slugify": "^1.2.7",
-    "string-format": "^0.5.0",
-    "string-length": "^2.0.0",
-    "strip-ansi": "^4.0.0"
+    "slugify": "1.2.7",
+    "string-format": "0.5.0",
+    "string-length": "2.0.0",
+    "strip-ansi": "4.0.0"
   },
   "devDependencies": {
-    "babel": "6.23.0",
     "babel-cli": "6.26.0",
     "babel-loader": "7.1.2",
+    "doxdox": "2.0.3",
     "eslint": "4.14.0",
     "eslint-config-standard": "10.2.1",
     "eslint-plugin-import": "2.8.0",
