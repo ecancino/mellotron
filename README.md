@@ -1,4 +1,4 @@
-# mellotron *0.0.9*
+# mellotron *0.1.0*
 
 > Synthetic string orchestra. Curated string manipulation library
 

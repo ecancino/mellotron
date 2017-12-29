@@ -1,11 +1,13 @@
 {
   "name": "mellotron",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "description": "Synthetic string orchestra. Curated string manipulation library",
   "main": "dist/mellotron.js",
   "scripts": {
     "prebuild": "rimraf ./dist",
-    "build": "webpack --output-filename mellotron.js",
+    "build": "npm-run-all --parallel build:*",
+    "build:main": "webpack --output-filename mellotron.js",
+    "build:min": "webpack --output-filename mellotron.min.js -p",
     "dox": "doxdox '*.js' --layout markdown --output README.md"
   },
   "keywords": [
@@ -29,6 +31,7 @@
   "devDependencies": {
     "babel-cli": "6.26.0",
     "babel-loader": "7.1.2",
+    "babel-preset-env": "1.6.1",
     "doxdox": "2.0.3",
     "eslint": "4.14.0",
     "eslint-config-standard": "10.2.1",

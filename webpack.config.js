@@ -1,7 +1,5 @@
 const { join } = require('path')
 
-const include = join(__dirname, 'src')
-
 module.exports = {
   entry: './index',
   output: {
@@ -12,7 +10,7 @@ module.exports = {
   devtool: 'source-map',
   module: {
     loaders: [
-      { test: /\.js$/, loader: 'babel', include }
+      { test: /\.js$/, loader: 'babel-loader', include: join(__dirname) }
     ]
   }
 }
