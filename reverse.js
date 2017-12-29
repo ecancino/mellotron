@@ -8,7 +8,7 @@
  * reverse('abc');
  * // => 'cba'
  *
- * replace('ab');
+ * reverse('ab');
  * // => 'ba'
  */
 const reverse = require('ramda/src/reverse')

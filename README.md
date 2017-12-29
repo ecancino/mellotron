@@ -1,4 +1,4 @@
-# mellotron *0.0.8*
+# mellotron *0.0.9*
 
 > Synthetic string orchestra. Curated string manipulation library
 
@@ -615,7 +615,7 @@ From [ramda/reverse](http://ramdajs.com/docs/#reverse)
 reverse('abc');
 // => 'cba'
 
-replace('ab');
+reverse('ab');
 // => 'ba'
 ```
 
