@@ -5,7 +5,7 @@
  * @param {string} regex A regular expression or a substring to match.
  * @param {string} replacement The string to replace the matches with.
  * @param {string} str The String to do the search and replacement in.
- * @returns {boolean} Returns the resulted `string`.
+ * @returns {string} Returns the resulted `string`.
  * @example
  * replace('foo', 'bar', 'foo foo foo');
  * // => 'bar foo foo'

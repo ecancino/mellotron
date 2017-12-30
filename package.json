@@ -1,7 +1,7 @@
 {
   "name": "mellotron",
-  "version": "0.1.0",
-  "description": "Synthetic string orchestra. Curated string manipulation library",
+  "version": "0.1.1",
+  "description": "Synthetic string orchestra. Curated list of string manipulation curried functions",
   "main": "dist/mellotron.js",
   "scripts": {
     "prebuild": "rimraf ./dist",

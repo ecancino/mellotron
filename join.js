@@ -4,7 +4,7 @@
  * @static
  * @param {string} separator The string used to separate the elements.
  * @param {string} xs The elements to join into a string.
- * @returns {boolean} Returns the `string` made by concatenating `xs` with `separator`.
+ * @returns {string} Returns the `string` made by concatenating `xs` with `separator`.
  * @example
  * join('|', [1, 2, 3])
  * // => '1|2|3'

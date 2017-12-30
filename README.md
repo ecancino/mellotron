@@ -1,12 +1,40 @@
-# mellotron *0.1.0*
+# mellotron *0.1.1*
 
-> Synthetic string orchestra. Curated string manipulation library
+> Synthetic string orchestra. Curated list of string manipulation curried functions
+
+> [`camelCase`](#camelCase)
+> [`capitalize`](#capitalize)
+> [`concat`](#concat)
+> [`deburr`](#deburr)
+> [`endsWith`](#endsWith)
+> [`format`](#format)
+> [`fromQuery`](#fromQuery)
+> [`hasAnsi`](#hasAnsi)
+> [`isString`](#isString)
+> [`join`](#join)
+> [`kebabCase`](#kebabCase)
+> [`leftPad`](#leftPad)
+> [`length`](#length)
+> [`pad`](#pad)
+> [`replace`](#replace)
+> [`reverse`](#reverse)
+> [`rightPad`](#rightPad)
+> [`slugify`](#slugify)
+> [`split`](#split)
+> [`startsWith`](#startsWith)
+> [`stripAnsi`](#stripAnsi)
+> [`toLower`](#toLower)
+> [`toQuery`](#toQuery)
+> [`toString`](#toString)
+> [`toUpper`](#toUpper)
+> [`trim`](#trim)
+> [`trimLeft`](#trimLeft)
+> [`trimRight`](#trimRight)
 
 
-### camelCase.js
 
 
-#### camelCase([string&#x3D;&#x27;&#x27;]) 
+## <a id="camelCase">camelCase([string&#x3D;&#x27;&#x27;])</a> 
 
 Converts `string` to [camel case](https://en.wikipedia.org/wiki/CamelCase).
 From [lodash/camelCase](https://lodash.com/docs/4.17.4#camelCase)
@@ -37,12 +65,11 @@ camelCase('Foo Bar');
 - `string`  Returns the camel cased string.
 
 
+***
 
 
-### capitalize.js
 
-
-#### capitalize([string&#x3D;&#x27;&#x27;]) 
+## <a id="capitalize">capitalize([string&#x3D;&#x27;&#x27;])</a> 
 
 Capitalize the first letter of a `string`, or all words in a `string`.
 From [capitalize](https://github.com/grncdr/js-capitalize)
@@ -76,12 +103,11 @@ capitalize.words('united states');
 - `string`  Returns the capitalized string.
 
 
+***
 
 
-### concat.js
 
-
-#### concat([string&#x3D;&#x27;&#x27;, string&#x3D;&#x27;&#x27;]) 
+## <a id="concat">concat([string&#x3D;&#x27;&#x27;, string&#x3D;&#x27;&#x27;])</a> 
 
 Concatenate the given `strings`.
 From [ramda/concat](http://ramdajs.com/docs/#concat)
@@ -113,12 +139,11 @@ concat('ABC', 'DEF');
 - `string`  Returns the result of concatenating the given `strings`.
 
 
+***
 
 
-### deburr.js
 
-
-#### deburr([string&#x3D;&#x27;&#x27;]) 
+## <a id="deburr">deburr([string&#x3D;&#x27;&#x27;])</a> 
 
 Deburrs `string` by converting letters to basic Latin letters and removing [combining diacritical marks](https://en.wikipedia.org/wiki/Combining_Diacritical_Marks).
 From [lodash/deburr](https://lodash.com/docs/4.17.4#deburr)
@@ -149,12 +174,11 @@ deburr('déjà vu');
 - `string`  Returns the deburred string.
 
 
+***
 
 
-### endsWith.js
 
-
-#### endsWith(target, string) 
+## <a id="endsWith">endsWith(target, string)</a> 
 
 Checks if `string` ends with the given target `string`.
 From [lodash/endsWith](https://lodash.com/docs/4.17.4#endsWith)
@@ -186,12 +210,11 @@ endsWith('c', 'abc');
 - `string`  Returns `true` if `string` ends with `target`, else `false`.
 
 
+***
 
 
-### format.js
 
-
-#### format(template, *) 
+## <a id="format">format(template, *)</a> 
 
 Values are interpolated on a template `string`.
 From [string-format](https://github.com/davidchambers/string-format)
@@ -232,12 +255,11 @@ template(['David', 'Chambers']) // => 'The name's Chambers. David Chambers.'
 - `string`  Returns the result of replacing each {…} placeholder in the template string with its corresponding replacement.
 
 
+***
 
 
-### fromQuery.js
 
-
-#### fromQuery(str[, opts]) 
+## <a id="fromQuery">fromQuery(str[, opts])</a> 
 
 Parse a query string into an object. Leading ? or # are ignored, so you can pass location.search or location.hash directly.
 From [query-string/parse](https://github.com/sindresorhus/query-string#parsestring-options)
@@ -276,12 +298,11 @@ fromQuery('foo[0]=1&foo[1]=2&foo[3]=3', { arrayFormat: 'index' });
 - `string`  Returns an object created with [Object.create(null)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create) and thus does not have a prototype.
 
 
+***
 
 
-### hasAnsi.js
 
-
-#### hasAnsi(input) 
+## <a id="hasAnsi">hasAnsi(input)</a> 
 
 Check if a `string` has [ANSI escape codes](https://en.wikipedia.org/wiki/ANSI_escape_code)
 From [has-ansi](https://github.com/chalk/has-ansi)
@@ -315,12 +336,11 @@ hasAnsi('cake');
 - `boolean`  Returns the result of validation.
 
 
+***
 
 
-### isString.js
 
-
-#### isString(val) 
+## <a id="isString">isString(val)</a> 
 
 See if an object is an instance of the String constructor.
 From [ramda/is](http://ramdajs.com/docs/#is)
@@ -354,12 +374,11 @@ isString(new String(''));
 - `boolean`  Returns if the value is a String.
 
 
+***
 
 
-### join.js
 
-
-#### join(separator, xs) 
+## <a id="join">join(separator, xs)</a> 
 
 Inserts the separator `string` between each element and concatenating all the elements into a single `string`.
 From [ramda/join](http://ramdajs.com/docs/#join)
@@ -391,15 +410,14 @@ join(' ', ['a', 2, 3.4]);
 ##### Returns
 
 
-- `boolean`  Returns the `string` made by concatenating `xs` with `separator`.
+- `string`  Returns the `string` made by concatenating `xs` with `separator`.
+
+
+***
 
 
 
-
-### kebabCase.js
-
-
-#### kebabCase([string&#x3D;&#x27;&#x27;]) 
+## <a id="kebabCase">kebabCase([string&#x3D;&#x27;&#x27;])</a> 
 
 Converts `string` to [kebab case](https://en.wikipedia.org/wiki/Letter_case#Special_case_styles).
 From [lodash/kebabCase](https://lodash.com/docs/4.17.4#kebabCase)
@@ -433,12 +451,11 @@ kebabCase('__FOO_BAR__');
 - `string`  Returns the kebab cased string.
 
 
+***
 
 
-### leftPad.js
 
-
-#### leftPad(length, string) 
+## <a id="leftPad">leftPad(length, string)</a> 
 
 Pads `string` on the left side if it's shorter than `length`. Padding characters are truncated if they exceed `length`.
 From [lodash/padStart](https://lodash.com/docs/4.17.4#padStart)
@@ -470,12 +487,11 @@ leftPad(6, 'abc');
 - `string`  Returns the padded string.
 
 
+***
 
 
-### length.js
 
-
-#### length(input) 
+## <a id="length">length(input)</a> 
 
 Length of a string by counting [astral symbols](https://web.archive.org/web/20150721114550/http://www.tlg.uci.edu/~opoudjis/unicode/unicode_astral.html) and ignoring [ANSI escape codes](https://github.com/sindresorhus/strip-ansi).
 From [string-length](https://github.com/sindresorhus/string-length)
@@ -509,12 +525,11 @@ length('\u001B[1municorn\u001B[22m');
 - `number`  Returns length of the string.
 
 
+***
 
 
-### pad.js
 
-
-#### pad(length, string) 
+## <a id="pad">pad(length, string)</a> 
 
 Pads `string` on the left and right sides if it's shorter than `length`. Padding characters are truncated if they can't be evenly divided by `length`.
 From [lodash/pad](https://lodash.com/docs/4.17.4#pad)
@@ -546,12 +561,11 @@ pad(8, 'abc');
 - `string`  Returns the padded string.
 
 
+***
 
 
-### replace.js
 
-
-#### replace(regex, replacement, str) 
+## <a id="replace">replace(regex, replacement, str)</a> 
 
 Inserts the separator `string` between each element and concatenating all the elements into a single `string`.
 From [ramda/replace](http://ramdajs.com/docs/#replace)
@@ -584,15 +598,14 @@ replace(/foo/g, 'bar', 'foo foo foo');
 ##### Returns
 
 
-- `boolean`  Returns the resulted `string`.
+- `string`  Returns the resulted `string`.
+
+
+***
 
 
 
-
-### reverse.js
-
-
-#### reverse(list) 
+## <a id="reverse">reverse(list)</a> 
 
 Reverse a `string`.
 From [ramda/reverse](http://ramdajs.com/docs/#reverse)
@@ -623,15 +636,14 @@ reverse('ab');
 ##### Returns
 
 
-- `boolean`  Returns a new string with the characters in reverse order.
+- `string`  Returns a new string with the characters in reverse order.
+
+
+***
 
 
 
-
-### rightPad.js
-
-
-#### rightPad(length, string) 
+## <a id="rightPad">rightPad(length, string)</a> 
 
 Pads `string` on the right side if it's shorter than `length`. Padding characters are truncated if they exceed `length`.
 From [lodash/padEnd](https://lodash.com/docs/4.17.4#padEnd)
@@ -663,12 +675,11 @@ rightPad(6, 'abc');
 - `string`  Returns the padded string.
 
 
+***
 
 
-### slugify.js
 
-
-#### slugify(options, string) 
+## <a id="slugify">slugify(options, string)</a> 
 
 Coerces foreign symbols to their english equivalent (check out the [charMap](https://github.com/simov/slugify/blob/master/index.js) for more details).
 From [slugify](https://github.com/simov/slugify)
@@ -713,12 +724,11 @@ slugify('unicode ♥ is ☢')
 - `string`  Returns the slugified string.
 
 
+***
 
 
-### split.js
 
-
-#### split(sep, str) 
+## <a id="split">split(sep, str)</a> 
 
 Splits a `string` into an `array` of strings based on the given separator.
 From [ramda/split](http://ramdajs.com/docs/#split)
@@ -750,15 +760,14 @@ split('/', '/usr/local/bin/node');
 ##### Returns
 
 
-- `Array.&lt;string&gt;`  Returns the resulting array.
+- `Array`  Returns the resulting array.
+
+
+***
 
 
 
-
-### startsWith.js
-
-
-#### startsWith(target, string) 
+## <a id="startsWith">startsWith(target, string)</a> 
 
 Checks if `string` starts with the given target `string`.
 From [lodash/startsWith](https://lodash.com/docs/4.17.4#startsWith)
@@ -790,12 +799,11 @@ startsWith('a', 'abc');
 - `string`  Returns `true` if `string` starts with `target`, else `false`.
 
 
+***
 
 
-### stripAnsi.js
 
-
-#### stripAnsi(input) 
+## <a id="stripAnsi">stripAnsi(input)</a> 
 
 Strip [ANSI escape codes](https://en.wikipedia.org/wiki/ANSI_escape_code)
 From [strip-ansi](https://github.com/chalk/strip-ansi)
@@ -823,15 +831,14 @@ stripAnsi('\u001B[4mUnicorn\u001B[0m');
 ##### Returns
 
 
-- `boolean`  Returns the string without ANSI escape codes.
+- `string`  Returns the string without ANSI escape codes.
+
+
+***
 
 
 
-
-### toLower.js
-
-
-#### toLower(str) 
+## <a id="toLower">toLower(str)</a> 
 
 Convert to lower case.
 From [ramda/toLower](http://ramdajs.com/docs/#toLower)
@@ -862,12 +869,11 @@ toLower('XYZ');
 - `string`  Returns the lower case version of `str`.
 
 
+***
 
 
-### toQuery.js
 
-
-#### toQuery(obj[, opts]) 
+## <a id="toQuery">toQuery(obj[, opts])</a> 
 
 Stringify an object into a query string, sorting the keys.
 From [query-string/stringify](https://github.com/sindresorhus/query-string#stringifyobject-options)
@@ -908,12 +914,11 @@ toQuery({ foo: [1,2,3] });
 - `string`  Returns an string representation of the object.
 
 
+***
 
 
-### toString.js
 
-
-#### toString(val) 
+## <a id="toString">toString(val)</a> 
 
 Convert to `string`.
 From [ramda/toString](http://ramdajs.com/docs/#toString)
@@ -950,12 +955,11 @@ toString({ foo: 1, bar: 2, baz: 3 });
 - `string`  Returns the string representation of the given value
 
 
+***
 
 
-### toUpper.js
 
-
-#### toUpper(str) 
+## <a id="toUpper">toUpper(str)</a> 
 
 Convert to upper case.
 From [ramda/toUpper](http://ramdajs.com/docs/#toUpper)
@@ -986,12 +990,11 @@ toUpper('abc');
 - `string`  Returns the upper case version of `str`.
 
 
+***
 
 
-### trim.js
 
-
-#### trim(str) 
+## <a id="trim">trim(str)</a> 
 
 Removes (strips) whitespace from both ends of the string.
 From [ramda/trim](http://ramdajs.com/docs/#trim)
@@ -1022,12 +1025,11 @@ trim('   xyz  ');
 - `string`  Returns the trimmed version of `str`.
 
 
+***
 
 
-### trimLeft.js
 
-
-#### trimLeft([string&#x3D;&#x27;&#x27;]) 
+## <a id="trimLeft">trimLeft([string&#x3D;&#x27;&#x27;])</a> 
 
 Removes leading whitespace or specified characters from `string`.
 From [lodash/trimStart](https://lodash.com/docs/4.17.4#trimStart)
@@ -1058,12 +1060,11 @@ trimStart('  abc  ');
 - `string`  Returns the trimmed string.
 
 
+***
 
 
-### trimRight.js
 
-
-#### trimRight([string&#x3D;&#x27;&#x27;]) 
+## <a id="trimRight">trimRight([string&#x3D;&#x27;&#x27;])</a> 
 
 Removes trailing whitespace or specified characters from `string`.
 From [lodash/trimEnd](https://lodash.com/docs/4.17.4#trimEnd)
@@ -1094,6 +1095,4 @@ trimRight('  abc  ');
 - `string`  Returns the trimmed string.
 
 
-
-
-*Documentation generated with [doxdox](https://github.com/neogeek/doxdox).*
+***

@@ -3,7 +3,7 @@
  * From [strip-ansi](https://github.com/chalk/strip-ansi)
  * @static
  * @param {string} input The string to clean.
- * @returns {boolean} Returns the string without ANSI escape codes.
+ * @returns {string} Returns the string without ANSI escape codes.
  * @example
  * stripAnsi('\u001B[4mUnicorn\u001B[0m');
  * // => 'Unicorn'

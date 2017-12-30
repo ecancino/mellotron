@@ -4,7 +4,7 @@
  * @static
  * @param {string} sep The pattern.
  * @param {string} str The string to separate into an array.
- * @returns {string[]} Returns the resulting array.
+ * @returns {Array} Returns the resulting array.
  * @example
  * split('.', 'a.b.c.xyz.d');
  * // => ['a', 'b', 'c', 'xyz', 'd']
