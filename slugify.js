@@ -1,5 +1,3 @@
-const flip = require('ramda/src/flip')
-
 /**
  * Coerces foreign symbols to their english equivalent (check out the [charMap](https://github.com/simov/slugify/blob/master/index.js) for more details).
  * From [slugify](https://github.com/simov/slugify)
@@ -11,13 +9,13 @@ const flip = require('ramda/src/flip')
  * @param {string} string The string to convert.
  * @returns {string} Returns the slugified string.
  * @example
- * slugify(null, 'Some string');
+ * slugify('Some string');
  * // => 'Some-string'
  *
- * slugify('_', 'some string');
- * // => 'some_string'
+ * slugify('some String', '_');
+ * // => 'some_String'
  *
- * slugify({ remove: /[,?]/g, replacement: '|', lower: true }, `O Brother, Where Art Thou?`)
+ * slugify(`O Brother, Where Art Thou?`, { remove: /[,?]/g, replacement: '|', lower: true })
  * // => 'o|brother|where|art|thou'
  *
  * slugify.extend({ '☢': 'radioactive' })
@@ -25,4 +23,4 @@ const flip = require('ramda/src/flip')
  * // => 'unicode-love-is-radioactive'
  */
 const slugify = require('slugify')
-module.exports = flip(slugify)
+module.exports = slugify

@@ -1,4 +1,4 @@
-# mellotron *0.1.1*
+# mellotron *0.1.2*
 
 > Synthetic string orchestra. Curated list of string manipulation curried functions
 
@@ -30,7 +30,6 @@
 > [`trim`](#trim)
 > [`trimLeft`](#trimLeft)
 > [`trimRight`](#trimRight)
-
 
 
 
@@ -66,7 +65,6 @@ camelCase('Foo Bar');
 
 
 ***
-
 
 
 ## <a id="capitalize">capitalize([string&#x3D;&#x27;&#x27;])</a> 
@@ -106,7 +104,6 @@ capitalize.words('united states');
 ***
 
 
-
 ## <a id="concat">concat([string&#x3D;&#x27;&#x27;, string&#x3D;&#x27;&#x27;])</a> 
 
 Concatenate the given `strings`.
@@ -140,7 +137,6 @@ concat('ABC', 'DEF');
 
 
 ***
-
 
 
 ## <a id="deburr">deburr([string&#x3D;&#x27;&#x27;])</a> 
@@ -177,7 +173,6 @@ deburr('déjà vu');
 ***
 
 
-
 ## <a id="endsWith">endsWith(target, string)</a> 
 
 Checks if `string` ends with the given target `string`.
@@ -211,7 +206,6 @@ endsWith('c', 'abc');
 
 
 ***
-
 
 
 ## <a id="format">format(template, *)</a> 
@@ -258,7 +252,6 @@ template(['David', 'Chambers']) // => 'The name's Chambers. David Chambers.'
 ***
 
 
-
 ## <a id="fromQuery">fromQuery(str[, opts])</a> 
 
 Parse a query string into an object. Leading ? or # are ignored, so you can pass location.search or location.hash directly.
@@ -301,7 +294,6 @@ fromQuery('foo[0]=1&foo[1]=2&foo[3]=3', { arrayFormat: 'index' });
 ***
 
 
-
 ## <a id="hasAnsi">hasAnsi(input)</a> 
 
 Check if a `string` has [ANSI escape codes](https://en.wikipedia.org/wiki/ANSI_escape_code)
@@ -339,7 +331,6 @@ hasAnsi('cake');
 ***
 
 
-
 ## <a id="isString">isString(val)</a> 
 
 See if an object is an instance of the String constructor.
@@ -375,7 +366,6 @@ isString(new String(''));
 
 
 ***
-
 
 
 ## <a id="join">join(separator, xs)</a> 
@@ -416,7 +406,6 @@ join(' ', ['a', 2, 3.4]);
 ***
 
 
-
 ## <a id="kebabCase">kebabCase([string&#x3D;&#x27;&#x27;])</a> 
 
 Converts `string` to [kebab case](https://en.wikipedia.org/wiki/Letter_case#Special_case_styles).
@@ -454,7 +443,6 @@ kebabCase('__FOO_BAR__');
 ***
 
 
-
 ## <a id="leftPad">leftPad(length, string)</a> 
 
 Pads `string` on the left side if it's shorter than `length`. Padding characters are truncated if they exceed `length`.
@@ -488,7 +476,6 @@ leftPad(6, 'abc');
 
 
 ***
-
 
 
 ## <a id="length">length(input)</a> 
@@ -528,7 +515,6 @@ length('\u001B[1municorn\u001B[22m');
 ***
 
 
-
 ## <a id="pad">pad(length, string)</a> 
 
 Pads `string` on the left and right sides if it's shorter than `length`. Padding characters are truncated if they can't be evenly divided by `length`.
@@ -562,7 +548,6 @@ pad(8, 'abc');
 
 
 ***
-
 
 
 ## <a id="replace">replace(regex, replacement, str)</a> 
@@ -604,7 +589,6 @@ replace(/foo/g, 'bar', 'foo foo foo');
 ***
 
 
-
 ## <a id="reverse">reverse(list)</a> 
 
 Reverse a `string`.
@@ -642,7 +626,6 @@ reverse('ab');
 ***
 
 
-
 ## <a id="rightPad">rightPad(length, string)</a> 
 
 Pads `string` on the right side if it's shorter than `length`. Padding characters are truncated if they exceed `length`.
@@ -678,7 +661,6 @@ rightPad(6, 'abc');
 ***
 
 
-
 ## <a id="slugify">slugify(options, string)</a> 
 
 Coerces foreign symbols to their english equivalent (check out the [charMap](https://github.com/simov/slugify/blob/master/index.js) for more details).
@@ -703,13 +685,13 @@ From [slugify](https://github.com/simov/slugify)
 ##### Examples
 
 ```javascript
-slugify(null, 'Some string');
+slugify('Some string');
 // => 'Some-string'
 
-slugify('_', 'some string');
-// => 'some_string'
+slugify('some String', '_');
+// => 'some_String'
 
-slugify({ remove: /[,?]/g, replacement: '|', lower: true }, `O Brother, Where Art Thou?`)
+slugify(`O Brother, Where Art Thou?`, { remove: /[,?]/g, replacement: '|', lower: true })
 // => 'o|brother|where|art|thou'
 
 slugify.extend({ '☢': 'radioactive' })
@@ -725,7 +707,6 @@ slugify('unicode ♥ is ☢')
 
 
 ***
-
 
 
 ## <a id="split">split(sep, str)</a> 
@@ -766,7 +747,6 @@ split('/', '/usr/local/bin/node');
 ***
 
 
-
 ## <a id="startsWith">startsWith(target, string)</a> 
 
 Checks if `string` starts with the given target `string`.
@@ -800,7 +780,6 @@ startsWith('a', 'abc');
 
 
 ***
-
 
 
 ## <a id="stripAnsi">stripAnsi(input)</a> 
@@ -837,7 +816,6 @@ stripAnsi('\u001B[4mUnicorn\u001B[0m');
 ***
 
 
-
 ## <a id="toLower">toLower(str)</a> 
 
 Convert to lower case.
@@ -870,7 +848,6 @@ toLower('XYZ');
 
 
 ***
-
 
 
 ## <a id="toQuery">toQuery(obj[, opts])</a> 
@@ -917,7 +894,6 @@ toQuery({ foo: [1,2,3] });
 ***
 
 
-
 ## <a id="toString">toString(val)</a> 
 
 Convert to `string`.
@@ -958,7 +934,6 @@ toString({ foo: 1, bar: 2, baz: 3 });
 ***
 
 
-
 ## <a id="toUpper">toUpper(str)</a> 
 
 Convert to upper case.
@@ -991,7 +966,6 @@ toUpper('abc');
 
 
 ***
-
 
 
 ## <a id="trim">trim(str)</a> 
@@ -1028,7 +1002,6 @@ trim('   xyz  ');
 ***
 
 
-
 ## <a id="trimLeft">trimLeft([string&#x3D;&#x27;&#x27;])</a> 
 
 Removes leading whitespace or specified characters from `string`.
@@ -1061,7 +1034,6 @@ trimStart('  abc  ');
 
 
 ***
-
 
 
 ## <a id="trimRight">trimRight([string&#x3D;&#x27;&#x27;])</a> 
