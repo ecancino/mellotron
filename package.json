@@ -1,6 +1,6 @@
 {
   "name": "mellotron",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Synthetic string orchestra. Curated list of string manipulation curried functions",
   "main": "dist/mellotron.js",
   "scripts": {

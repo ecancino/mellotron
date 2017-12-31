@@ -4,7 +4,7 @@
  * @static
  * @param {string} target The string to search for.
  * @param {string} string The string to inspect.
- * @returns {string} Returns `true` if `string` starts with `target`, else `false`.
+ * @returns {boolean} Returns `true` if `string` starts with `target`, else `false`.
  * @example
  * startsWith('a', 'abc');
  * // => true

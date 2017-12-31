@@ -5,7 +5,7 @@
  * @param {string} str The string to inspect.
  * @param {Object} [opts] Configuration options.
  * @param {string} [opts.arrayFormat='none'] Parsing arrays correctly
- * @returns {string} Returns an object created with [Object.create(null)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create) and thus does not have a prototype.
+ * @returns {Object} Returns an object created with [Object.create(null)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create) and thus does not have a prototype.
  * @example
  * fromQuery('foo=1&foo=2&foo=3', { arrayFormat: 'none' }));
  * // => { foo: [1,2,3] }

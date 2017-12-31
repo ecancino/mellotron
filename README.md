@@ -202,7 +202,7 @@ endsWith('c', 'abc');
 ##### Returns
 
 
-- `string`  Returns `true` if `string` ends with `target`, else `false`.
+- `boolean`  Returns `true` if `string` ends with `target`, else `false`.
 
 
 ***
@@ -288,7 +288,7 @@ fromQuery('foo[0]=1&foo[1]=2&foo[3]=3', { arrayFormat: 'index' });
 ##### Returns
 
 
-- `string`  Returns an object created with [Object.create(null)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create) and thus does not have a prototype.
+- `Object`  Returns an object created with [Object.create(null)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create) and thus does not have a prototype.
 
 
 ***
@@ -776,7 +776,7 @@ startsWith('a', 'abc');
 ##### Returns
 
 
-- `string`  Returns `true` if `string` starts with `target`, else `false`.
+- `boolean`  Returns `true` if `string` starts with `target`, else `false`.
 
 
 ***
