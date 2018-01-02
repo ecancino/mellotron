@@ -1,6 +1,6 @@
 {
   "name": "mellotron",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Synthetic string orchestra. Curated list of string manipulation curried functions",
   "main": "dist/mellotron.js",
   "scripts": {
@@ -21,7 +21,7 @@
     "chars": "2.2.0",
     "has-ansi": "^3.0.0",
     "lodash": "4.17.4",
-    "query-string": "5.0.1",
+    "querystring": "0.2.0",
     "ramda": "0.23.0",
     "slugify": "1.2.7",
     "string-format": "0.5.0",

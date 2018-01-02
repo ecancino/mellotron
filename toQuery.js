@@ -1,22 +1,19 @@
 /**
  * Stringify an object into a query string, sorting the keys.
- * From [query-string/stringify](https://github.com/sindresorhus/query-string#stringifyobject-options)
+ * From [querystring/stringify](https://nodejs.org/api/querystring.html#querystring_querystring_stringify_obj_sep_eq_options)
  * @static
- * @param {Object} obj The objecto to inspect.
- * @param {Object} [opts] Configuration options.
- * @param {boolean} [opts.strict=true] Strictly encode URI components with [strict-uri-encode](https://github.com/kevva/strict-uri-encode). It uses [encodeURIComponent](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent) if set to false. You probably [don't care](https://github.com/sindresorhus/query-string/issues/42) about this option.
- * @param {boolean} [opts.encode=true] [URL encode](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent) the keys and values.
- * @param {string} [opts.arrayFormat='none'] Parsing arrays correctly
- * @returns {string} Returns an string representation of the object.
+ * @param {string} str The URL query string to parse.
+ * @param {string} [sep='&'] The substring used to delimit key and value pairs in the query string. Defaults to '&'.
+ * @param {string} [eq='='] The substring used to delimit keys and values in the query string. Defaults to '='.
+ * @param {Object} [options]
+ * @param {Function} [options.decodeURIComponent=querystring.unescape()] The function to use when decoding percent-encoded characters in the query string.
+ * @returns {Object} Returns the parsed URL query string (str) into a collection of key and value pairs.
  * @example
- * toQuery({ foo: [1,2,3] }, { arrayFormat: 'bracket' });
- * // => 'foo[]=1&foo[]=2&foo[]=3'
+ * toQuery({ foo: 'bar', baz: ['qux', 'quux'], corge: '' });
+ * // => 'foo=bar&baz=qux&baz=quux&corge='
  *
- * toQuery({ foo: [1,2,3] }, { arrayFormat: 'index' });
- * // => 'foo[0]=1&foo[1]=2&foo[3]=3'
- *
- * toQuery({ foo: [1,2,3] });
- * // => 'foo=1&foo=2&foo=3
+ * toQuery({ foo: 'bar', baz: 'qux' }, '|', ':');
+ * // => foo:bar|baz:qux'
  */
-const toQuery = require('query-string').stringify
+const toQuery = require('querystring').stringify
 module.exports = toQuery

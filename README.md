@@ -1,4 +1,4 @@
-# mellotron *0.1.4*
+# mellotron *0.1.6*
 
 > Synthetic string orchestra. Curated list of string manipulation curried functions
 
@@ -34,7 +34,8 @@
 
 
 
-#### camelCase([string&#x3D;&#x27;&#x27;]) 
+<a id="camelCase"></a>
+## camelCase([string&#x3D;&#x27;&#x27;]) 
 
 Converts `string` to [camel case](https://en.wikipedia.org/wiki/CamelCase).
 From [lodash/camelCase](https://lodash.com/docs/4.17.4#camelCase)
@@ -68,7 +69,8 @@ camelCase('Foo Bar');
 
 
 
-#### capitalize([string&#x3D;&#x27;&#x27;]) 
+<a id="capitalize"></a>
+## capitalize([string&#x3D;&#x27;&#x27;]) 
 
 Capitalize the first letter of a `string`, or all words in a `string`.
 From [capitalize](https://github.com/grncdr/js-capitalize)
@@ -105,7 +107,8 @@ capitalize.words('united states');
 
 
 
-#### concat([string&#x3D;&#x27;&#x27;, string&#x3D;&#x27;&#x27;]) 
+<a id="concat"></a>
+## concat([string&#x3D;&#x27;&#x27;, string&#x3D;&#x27;&#x27;]) 
 
 Concatenate the given `strings`.
 From [ramda/concat](http://ramdajs.com/docs/#concat)
@@ -144,7 +147,8 @@ prefix('space');
 
 
 
-#### deburr([string&#x3D;&#x27;&#x27;]) 
+<a id="deburr"></a>
+## deburr([string&#x3D;&#x27;&#x27;]) 
 
 Deburrs `string` by converting letters to basic Latin letters and removing [combining diacritical marks](https://en.wikipedia.org/wiki/Combining_Diacritical_Marks).
 From [lodash/deburr](https://lodash.com/docs/4.17.4#deburr)
@@ -178,7 +182,8 @@ deburr('déjà vu');
 
 
 
-#### endsWith(target, string) 
+<a id="endsWith"></a>
+## endsWith(target, string) 
 
 Checks if `string` ends with the given target `string`.
 From [lodash/endsWith](https://lodash.com/docs/4.17.4#endsWith)
@@ -217,7 +222,8 @@ endsWithR('bar');
 
 
 
-#### format(template, *) 
+<a id="format"></a>
+## format(template, *) 
 
 Values are interpolated on a template `string`.
 From [string-format](https://github.com/davidchambers/string-format)
@@ -261,10 +267,11 @@ template(['David', 'Chambers']) // => 'The name's Chambers. David Chambers.'
 
 
 
-#### fromQuery(str[, opts]) 
+<a id="fromQuery"></a>
+## fromQuery(str[, sep&#x3D;&#x27;&amp;&#x27;, eq&#x3D;&#x27;&#x3D;&#x27;, options]) 
 
 Parse a query string into an object. Leading ? or # are ignored, so you can pass location.search or location.hash directly.
-From [query-string/parse](https://github.com/sindresorhus/query-string#parsestring-options)
+From [querystring/parse](https://nodejs.org/api/querystring.html#querystring_querystring_parse_str_sep_eq_options)
 
 
 
@@ -273,9 +280,12 @@ From [query-string/parse](https://github.com/sindresorhus/query-string#parsestri
 
 | Name | Type | Description |  |
 | ---- | ---- | ----------- | -------- |
-| str | `string`  | The string to inspect. | &nbsp; |
-| opts | `Object`  | Configuration options. | *Optional* |
-| opts.arrayFormat&#x3D;&#x27;none&#x27; | `string`  | Parsing arrays correctly | *Optional* |
+| str | `string`  | The URL query string to parse. | &nbsp; |
+| sep&#x3D;&#x27;&amp;&#x27; | `string`  | The substring used to delimit key and value pairs in the query string. Defaults to '&'. | *Optional* |
+| eq&#x3D;&#x27;&#x3D;&#x27; | `string`  | The substring used to delimit keys and values in the query string. Defaults to '='. | *Optional* |
+| options | `Object`  |  | *Optional* |
+| options.decodeURIComponent&#x3D;querystring.unescape() | `Function`  | The function to use when decoding percent-encoded characters in the query string. | *Optional* |
+| options.maxKeys&#x3D;1000 | `Function`  | Specifies the maximum number of keys to parse. Defaults to 1000. Specify 0 to remove key counting limitations. | *Optional* |
 
 
 
@@ -283,27 +293,25 @@ From [query-string/parse](https://github.com/sindresorhus/query-string#parsestri
 ##### Examples
 
 ```javascript
-fromQuery('foo=1&foo=2&foo=3', { arrayFormat: 'none' }));
-// => { foo: [1,2,3] }
+fromQuery('foo=1&foo=2&foo=3');
+// => { foo: ['1', '2', '3' ] }
 
-fromQuery('foo[]=1&foo[]=2&foo[]=3', { arrayFormat: 'bracket' });
-// => { foo: [1,2,3] }
-
-fromQuery('foo[0]=1&foo[1]=2&foo[3]=3', { arrayFormat: 'index' });
-// => { foo: [1,2,3] }
+fromQuery('foo:1|foo:2|foo:3', '|', ':');
+// => { foo: ['1', '2', '3' ] }
 ```
 
 
 ##### Returns
 
 
-- `Object`  Returns an object created with [Object.create(null)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create) and thus does not have a prototype.
+- `Object`  Returns the parsed URL query string (str) into a collection of key and value pairs.
 
 
 
 
 
-#### hasAnsi(input) 
+<a id="hasAnsi"></a>
+## hasAnsi(input) 
 
 Check if a `string` has [ANSI escape codes](https://en.wikipedia.org/wiki/ANSI_escape_code)
 From [has-ansi](https://github.com/chalk/has-ansi)
@@ -340,7 +348,8 @@ hasAnsi('cake');
 
 
 
-#### isString(val) 
+<a id="isString"></a>
+## isString(val) 
 
 See if an object is an instance of the String constructor.
 From [ramda/is](http://ramdajs.com/docs/#is)
@@ -377,7 +386,8 @@ isString(new String(''));
 
 
 
-#### join(separator, xs) 
+<a id="join"></a>
+## join(separator, xs) 
 
 Inserts the separator `string` between each element and concatenating all the elements into a single `string`.
 From [ramda/join](http://ramdajs.com/docs/#join)
@@ -416,7 +426,8 @@ piper(['Pied', 'Piper', 'of', 'Hamelin']);
 
 
 
-#### kebabCase([string&#x3D;&#x27;&#x27;]) 
+<a id="kebabCase"></a>
+## kebabCase([string&#x3D;&#x27;&#x27;]) 
 
 Converts `string` to [kebab case](https://en.wikipedia.org/wiki/Letter_case#Special_case_styles).
 From [lodash/kebabCase](https://lodash.com/docs/4.17.4#kebabCase)
@@ -453,7 +464,8 @@ kebabCase('__FOO_BAR__');
 
 
 
-#### leftPad(length, string) 
+<a id="leftPad"></a>
+## leftPad(length, string) 
 
 Pads `string` on the left side if it's shorter than `length`. Padding characters are truncated if they exceed `length`.
 From [lodash/padStart](https://lodash.com/docs/4.17.4#padStart)
@@ -488,7 +500,8 @@ leftPad(6, 'abc');
 
 
 
-#### length(input) 
+<a id="length"></a>
+## length(input) 
 
 Length of a string by counting [astral symbols](https://web.archive.org/web/20150721114550/http://www.tlg.uci.edu/~opoudjis/unicode/unicode_astral.html) and ignoring [ANSI escape codes](https://github.com/sindresorhus/strip-ansi).
 From [string-length](https://github.com/sindresorhus/string-length)
@@ -525,7 +538,8 @@ length('\u001B[1municorn\u001B[22m');
 
 
 
-#### pad(length, string) 
+<a id="pad"></a>
+## pad(length, string) 
 
 Pads `string` on the left and right sides if it's shorter than `length`. Padding characters are truncated if they can't be evenly divided by `length`.
 From [lodash/pad](https://lodash.com/docs/4.17.4#pad)
@@ -560,7 +574,8 @@ pad(8, 'abc');
 
 
 
-#### replace(regex, replacement, str) 
+<a id="replace"></a>
+## replace(regex, replacement, str) 
 
 Inserts the separator `string` between each element and concatenating all the elements into a single `string`.
 From [ramda/replace](http://ramdajs.com/docs/#replace)
@@ -599,7 +614,8 @@ censor('Maybe bad words')
 
 
 
-#### reverse(list) 
+<a id="reverse"></a>
+## reverse(list) 
 
 Reverse a `string`.
 From [ramda/reverse](http://ramdajs.com/docs/#reverse)
@@ -636,7 +652,8 @@ reverse('ab');
 
 
 
-#### rightPad(length, string) 
+<a id="rightPad"></a>
+## rightPad(length, string) 
 
 Pads `string` on the right side if it's shorter than `length`. Padding characters are truncated if they exceed `length`.
 From [lodash/padEnd](https://lodash.com/docs/4.17.4#padEnd)
@@ -671,7 +688,8 @@ rightPad(6, 'abc');
 
 
 
-#### slugify(options, string) 
+<a id="slugify"></a>
+## slugify(options, string) 
 
 Coerces foreign symbols to their english equivalent (check out the [charMap](https://github.com/simov/slugify/blob/master/index.js) for more details).
 From [slugify](https://github.com/simov/slugify)
@@ -719,7 +737,8 @@ slugify('unicode ♥ is ☢');
 
 
 
-#### split(sep, str) 
+<a id="split"></a>
+## split(sep, str) 
 
 Splits a `string` into an `array` of strings based on the given separator.
 From [ramda/split](http://ramdajs.com/docs/#split)
@@ -759,7 +778,8 @@ tail(path('/usr/local/bin/node'));
 
 
 
-#### startsWith(target, string) 
+<a id="startsWith"></a>
+## startsWith(target, string) 
 
 Checks if `string` starts with the given target `string`.
 From [lodash/startsWith](https://lodash.com/docs/4.17.4#startsWith)
@@ -798,7 +818,8 @@ startsWithM('Mellotron');
 
 
 
-#### stripAnsi(input) 
+<a id="stripAnsi"></a>
+## stripAnsi(input) 
 
 Strip [ANSI escape codes](https://en.wikipedia.org/wiki/ANSI_escape_code)
 From [strip-ansi](https://github.com/chalk/strip-ansi)
@@ -832,7 +853,8 @@ stripAnsi('\u001B[4mUnicorn\u001B[0m');
 
 
 
-#### toLower(str) 
+<a id="toLower"></a>
+## toLower(str) 
 
 Convert to lower case.
 From [ramda/toLower](http://ramdajs.com/docs/#toLower)
@@ -866,10 +888,11 @@ toLower('XYZ');
 
 
 
-#### toQuery(obj[, opts]) 
+<a id="toQuery"></a>
+## toQuery(str[, sep&#x3D;&#x27;&amp;&#x27;, eq&#x3D;&#x27;&#x3D;&#x27;, options]) 
 
 Stringify an object into a query string, sorting the keys.
-From [query-string/stringify](https://github.com/sindresorhus/query-string#stringifyobject-options)
+From [querystring/stringify](https://nodejs.org/api/querystring.html#querystring_querystring_stringify_obj_sep_eq_options)
 
 
 
@@ -878,11 +901,11 @@ From [query-string/stringify](https://github.com/sindresorhus/query-string#strin
 
 | Name | Type | Description |  |
 | ---- | ---- | ----------- | -------- |
-| obj | `Object`  | The objecto to inspect. | &nbsp; |
-| opts | `Object`  | Configuration options. | *Optional* |
-| opts.strict&#x3D;true | `boolean`  | Strictly encode URI components with [strict-uri-encode](https://github.com/kevva/strict-uri-encode). It uses [encodeURIComponent](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent) if set to false. You probably [don't care](https://github.com/sindresorhus/query-string/issues/42) about this option. | *Optional* |
-| opts.encode&#x3D;true | `boolean`  | [URL encode](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent) the keys and values. | *Optional* |
-| opts.arrayFormat&#x3D;&#x27;none&#x27; | `string`  | Parsing arrays correctly | *Optional* |
+| str | `string`  | The URL query string to parse. | &nbsp; |
+| sep&#x3D;&#x27;&amp;&#x27; | `string`  | The substring used to delimit key and value pairs in the query string. Defaults to '&'. | *Optional* |
+| eq&#x3D;&#x27;&#x3D;&#x27; | `string`  | The substring used to delimit keys and values in the query string. Defaults to '='. | *Optional* |
+| options | `Object`  |  | *Optional* |
+| options.decodeURIComponent&#x3D;querystring.unescape() | `Function`  | The function to use when decoding percent-encoded characters in the query string. | *Optional* |
 
 
 
@@ -890,27 +913,25 @@ From [query-string/stringify](https://github.com/sindresorhus/query-string#strin
 ##### Examples
 
 ```javascript
-toQuery({ foo: [1,2,3] }, { arrayFormat: 'bracket' });
-// => 'foo[]=1&foo[]=2&foo[]=3'
+toQuery({ foo: 'bar', baz: ['qux', 'quux'], corge: '' });
+// => 'foo=bar&baz=qux&baz=quux&corge='
 
-toQuery({ foo: [1,2,3] }, { arrayFormat: 'index' });
-// => 'foo[0]=1&foo[1]=2&foo[3]=3'
-
-toQuery({ foo: [1,2,3] });
-// => 'foo=1&foo=2&foo=3
+toQuery({ foo: 'bar', baz: 'qux' }, '|', ':');
+// => foo:bar|baz:qux'
 ```
 
 
 ##### Returns
 
 
-- `string`  Returns an string representation of the object.
+- `Object`  Returns the parsed URL query string (str) into a collection of key and value pairs.
 
 
 
 
 
-#### toString(val) 
+<a id="toString"></a>
+## toString(val) 
 
 Convert to `string`.
 From [ramda/toString](http://ramdajs.com/docs/#toString)
@@ -950,7 +971,8 @@ toString({ foo: 1, bar: 2, baz: 3 });
 
 
 
-#### toUpper(str) 
+<a id="toUpper"></a>
+## toUpper(str) 
 
 Convert to upper case.
 From [ramda/toUpper](http://ramdajs.com/docs/#toUpper)
@@ -984,7 +1006,8 @@ toUpper('abc');
 
 
 
-#### trim(str) 
+<a id="trim"></a>
+## trim(str) 
 
 Removes (strips) whitespace from both ends of the string.
 From [ramda/trim](http://ramdajs.com/docs/#trim)
@@ -1018,7 +1041,8 @@ trim('   xyz  ');
 
 
 
-#### trimLeft([string&#x3D;&#x27;&#x27;]) 
+<a id="trimLeft"></a>
+## trimLeft([string&#x3D;&#x27;&#x27;]) 
 
 Removes leading whitespace or specified characters from `string`.
 From [lodash/trimStart](https://lodash.com/docs/4.17.4#trimStart)
@@ -1052,7 +1076,8 @@ trimStart('  abc  ');
 
 
 
-#### trimRight([string&#x3D;&#x27;&#x27;]) 
+<a id="trimRight"></a>
+## trimRight([string&#x3D;&#x27;&#x27;]) 
 
 Removes trailing whitespace or specified characters from `string`.
 From [lodash/trimEnd](https://lodash.com/docs/4.17.4#trimEnd)
@@ -1084,5 +1109,3 @@ trimRight('  abc  ');
 
 
 
-
-*Documentation generated with [doxdox](https://github.com/neogeek/doxdox).*
