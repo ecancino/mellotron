@@ -1,4 +1,4 @@
-# [mellotron](https://www.npmjs.com/package/mellotron) *0.1.6*
+# [mellotron](https://www.npmjs.com/package/mellotron) *0.1.7*
 
 > Synthetic string orchestra. Curated list of string manipulation curried functions
 ```
@@ -8,6 +8,7 @@
   npm install mellotron
 ```
 
+## Methods
 > [camelCase](#camelCase)
 > [capitalize](#capitalize)
 > [concat](#concat)
@@ -34,10 +35,10 @@
 > [toQuery](#toQuery)
 > [toString](#toString)
 > [toUpper](#toUpper)
+> [toURL](#toURL)
 > [trim](#trim)
 > [trimLeft](#trimLeft)
 > [trimRight](#trimRight)
-
 
 <a id="camelCase"></a>
 ## camelCase([string&#x3D;&#x27;&#x27;]) 
@@ -208,7 +209,7 @@ template(['David', 'Chambers']) // => 'The name's Chambers. David Chambers.'
 
 <a id="fromQuery"></a>
 ## fromQuery(str[, sep&#x3D;&#x27;&amp;&#x27;, eq&#x3D;&#x27;&#x3D;&#x27;, options]) 
-Parse a query string into an object. Leading ? or # are ignored, so you can pass location.search or location.hash directly.
+Parse a query string into an object.
 From [querystring/parse](https://nodejs.org/api/querystring.html#querystring_querystring_parse_str_sep_eq_options)
 
 
@@ -219,11 +220,11 @@ From [querystring/parse](https://nodejs.org/api/querystring.html#querystring_que
 | Name | Type | Description |  |
 | ---- | ---- | ----------- | -------- |
 | str | `string`  | The URL query string to parse. | &nbsp; |
-| sep&#x3D;&#x27;&amp;&#x27; | `string`  | The substring used to delimit key and value pairs in the query string. Defaults to &#x27;&amp;&#x27;. | *Optional* |
-| eq&#x3D;&#x27;&#x3D;&#x27; | `string`  | The substring used to delimit keys and values in the query string. Defaults to &#x27;&#x3D;&#x27;. | *Optional* |
+| sep&#x3D;&#x27;&amp;&#x27; | `string`  | The substring to delimit key and value pairs. | *Optional* |
+| eq&#x3D;&#x27;&#x3D;&#x27; | `string`  | The substring to delimit keys and values. | *Optional* |
 | options | `Object`  |  | *Optional* |
-| options.decodeURIComponent&#x3D;querystring.unescape() | `Function`  | The function to use when decoding percent-encoded characters in the query string. | *Optional* |
-| options.maxKeys&#x3D;1000 | `Function`  | Specifies the maximum number of keys to parse. Defaults to 1000. Specify 0 to remove key counting limitations. | *Optional* |
+| options.decodeURIComponent&#x3D;querystring.unescape() | `Function`  | The decoding function. | *Optional* |
+| options.maxKeys&#x3D;1000 | `Function`  | Maximum number of keys to parse. 0 to remove key counting limitations. | *Optional* |
 
 
 ##### Examples
@@ -241,7 +242,7 @@ fromQuery('foo:1|foo:2|foo:3', '|', ':');
 <a id="fromURL"></a>
 ## fromURL(urlString[, parseQueryString&#x3D;false, slashesDenoteHost&#x3D;false]) 
 Parse a query string into an object. Leading ? or # are ignored, so you can pass location.search or location.hash directly.
-From [querystring/parse](https://nodejs.org/api/querystring.html#querystring_querystring_parse_str_sep_eq_options)
+From [url/parse](https://nodejs.org/api/url.html#url_url_parse_urlstring_parsequerystring_slashesdenotehost)
 
 
 
@@ -251,23 +252,32 @@ From [querystring/parse](https://nodejs.org/api/querystring.html#querystring_que
 | Name | Type | Description |  |
 | ---- | ---- | ----------- | -------- |
 | urlString | `string`  | The URL string to parse. | &nbsp; |
-| parseQueryString&#x3D;false | `boolean`  | If true, the query property will always be set to an object returned by the querystring module&#x27;s parse() method. If false, the query property on the returned URL object will be an unparsed, undecoded string. | *Optional* |
-| slashesDenoteHost&#x3D;false | `boolean`  | If true, the first token after the literal string // and preceding the next / will be interpreted as the host. For instance, given //foo/bar, the result would be {host: &#x27;foo&#x27;, pathname: &#x27;/bar&#x27;} rather than {pathname: &#x27;//foo/bar&#x27;}. | *Optional* |
+| parseQueryString&#x3D;false | `boolean`  | The query property will be set to an object returned by the querystring module&#x27;s parse() method if &#x60;true&#x60;. | *Optional* |
+| slashesDenoteHost&#x3D;false | `boolean`  | The first token after the literal string // and preceding the next / will be interpreted as the host if &#x60;true&#x60;. | *Optional* |
 
 
 ##### Examples
 ```javascript
-fromURL('foo=1&foo=2&foo=3');
-// => { foo: ['1', '2', '3' ] }
-
-fromURL('foo:1|foo:2|foo:3', '|', ':');
-// => { foo: ['1', '2', '3' ] }
+fromURL('https://www.dgmlive.com/kingcrimson/?album=discipline#track-1');
+// =>
+// {
+//   protocol: 'https:',
+//   slashes: true,
+//   auth: null,
+//   host: 'www.dgmlive.com',
+//   port: null,
+//   hostname: 'www.dgmlive.com',
+//   hash: '#track-1',
+//   search: '?album=discipline',
+//   query: 'album=discipline',
+//   pathname: '/kingcrimson/',
+//   path: '/kingcrimson/?album=discipline',
+//   href: 'https://www.dgmlive.com/kingcrimson/?album=discipline#track-1'
+// }
 ```
 
 ##### Returns
 - `Object`  Returns the parsed URL into a collection of key and value pairs.
-- `TypeError`  A TypeError is thrown if urlString is not a string.
-- `URIError`  A URIError is thrown if the auth property is present but cannot be decoded.
 
 <a id="hasAnsi"></a>
 ## hasAnsi(input) 
@@ -695,10 +705,10 @@ From [querystring/stringify](https://nodejs.org/api/querystring.html#querystring
 | Name | Type | Description |  |
 | ---- | ---- | ----------- | -------- |
 | str | `string`  | The URL query string to parse. | &nbsp; |
-| sep&#x3D;&#x27;&amp;&#x27; | `string`  | The substring used to delimit key and value pairs in the query string. Defaults to &#x27;&amp;&#x27;. | *Optional* |
-| eq&#x3D;&#x27;&#x3D;&#x27; | `string`  | The substring used to delimit keys and values in the query string. Defaults to &#x27;&#x3D;&#x27;. | *Optional* |
+| sep&#x3D;&#x27;&amp;&#x27; | `string`  | The substring to delimit key and value pairs. | *Optional* |
+| eq&#x3D;&#x27;&#x3D;&#x27; | `string`  | The substring to delimit keys and values. | *Optional* |
 | options | `Object`  |  | *Optional* |
-| options.decodeURIComponent&#x3D;querystring.unescape() | `Function`  | The function to use when decoding percent-encoded characters in the query string. | *Optional* |
+| options.decodeURIComponent&#x3D;querystring.unescape() | `Function`  | The decoding function. | *Optional* |
 
 
 ##### Examples
@@ -766,6 +776,36 @@ toUpper('abc');
 
 ##### Returns
 - `string`  Returns the upper case version of `str`.
+
+<a id="toURL"></a>
+## toURL(urlObject) 
+Convert an url object to URL.
+From [url/format](https://nodejs.org/api/url.html#url_url_format_urlobject)
+
+
+
+
+##### Parameters
+
+| Name | Type | Description |  |
+| ---- | ---- | ----------- | -------- |
+| urlObject | `Object` `string`  | A URL object (as returned by url.parse() or constructed otherwise). If a string, it is converted to an object by passing it to url.parse(). | &nbsp; |
+
+
+##### Examples
+```javascript
+toURL({
+ protocol: 'https',
+ host: 'www.dgmlive.com',
+ hash: '#track-1',
+ query: { album: 'discipline' },
+ pathname: '/kingcrimson'
+})
+// => "https://www.dgmlive.com/kingcrimson?album=discipline#track-1"
+```
+
+##### Returns
+- `string`  Returns the resulted URL.
 
 <a id="trim"></a>
 ## trim(str) 
