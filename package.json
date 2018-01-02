@@ -1,13 +1,13 @@
 {
   "name": "mellotron",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "Synthetic string orchestra. Curated list of string manipulation curried functions",
   "homepage": "https://www.npmjs.com/package/mellotron",
   "main": "dist/mellotron.min.js",
   "unpkg": "index.js",
   "scripts": {
     "prebuild": "rimraf ./dist",
-    "build": "npm-run-all --parallel build:*",
+    "build": "yarn build:main & yarn build:min",
     "build:main": "webpack --output-filename mellotron.js",
     "build:min": "webpack --output-filename mellotron.min.js -p",
     "dox": "doxdox '*.js' --layout ./template.hbs --output README.md"
@@ -21,14 +21,12 @@
     "astral-regex": "1.0.0",
     "capitalize": "1.0.0",
     "chars": "2.2.0",
-    "has-ansi": "3.0.0",
     "lodash": "4.17.4",
     "querystring": "0.2.0",
     "ramda": "0.23.0",
     "slugify": "1.2.7",
     "string-format": "0.5.0",
     "string-length": "2.0.0",
-    "strip-ansi": "4.0.0",
     "url": "0.11.0"
   },
   "devDependencies": {

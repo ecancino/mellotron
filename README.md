@@ -1,4 +1,4 @@
-# [mellotron](https://www.npmjs.com/package/mellotron) *0.1.8*
+# [mellotron](https://www.npmjs.com/package/mellotron) *0.1.9*
 
 > Synthetic string orchestra. Curated list of string manipulation curried functions
 ```
@@ -17,7 +17,6 @@
 > [format](#format)
 > [fromQuery](#fromQuery)
 > [fromURL](#fromURL)
-> [hasAnsi](#hasAnsi)
 > [isString](#isString)
 > [join](#join)
 > [kebabCase](#kebabCase)
@@ -30,7 +29,6 @@
 > [slugify](#slugify)
 > [split](#split)
 > [startsWith](#startsWith)
-> [stripAnsi](#stripAnsi)
 > [toLower](#toLower)
 > [toQuery](#toQuery)
 > [toString](#toString)
@@ -278,33 +276,6 @@ fromURL('https://www.dgmlive.com/kingcrimson/?album=discipline#track-1');
 
 ##### Returns
 - `Object`  Returns the parsed URL into a collection of key and value pairs.
-
-<a id="hasAnsi"></a>
-## hasAnsi(input) 
-Check if a `string` has [ANSI escape codes](https://en.wikipedia.org/wiki/ANSI_escape_code)
-From [has-ansi](https://github.com/chalk/has-ansi)
-
-
-
-
-##### Parameters
-
-| Name | Type | Description |  |
-| ---- | ---- | ----------- | -------- |
-| input | `string`  | The string to validate. | &nbsp; |
-
-
-##### Examples
-```javascript
-hasAnsi('\u001B[4mUnicorn\u001B[0m');
-// => true
-
-hasAnsi('cake');
-// => false
-```
-
-##### Returns
-- `boolean`  Returns the result of validation.
 
 <a id="isString"></a>
 ## isString(val) 
@@ -643,30 +614,6 @@ startsWithM('Mellotron');
 
 ##### Returns
 - `boolean`  Returns `true` if `string` starts with `target`, else `false`.
-
-<a id="stripAnsi"></a>
-## stripAnsi(input) 
-Strip [ANSI escape codes](https://en.wikipedia.org/wiki/ANSI_escape_code)
-From [strip-ansi](https://github.com/chalk/strip-ansi)
-
-
-
-
-##### Parameters
-
-| Name | Type | Description |  |
-| ---- | ---- | ----------- | -------- |
-| input | `string`  | The string to clean. | &nbsp; |
-
-
-##### Examples
-```javascript
-stripAnsi('\u001B[4mUnicorn\u001B[0m');
-// => 'Unicorn'
-```
-
-##### Returns
-- `string`  Returns the string without ANSI escape codes.
 
 <a id="toLower"></a>
 ## toLower(str) 
