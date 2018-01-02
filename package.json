@@ -1,9 +1,10 @@
 {
   "name": "mellotron",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Synthetic string orchestra. Curated list of string manipulation curried functions",
   "homepage": "https://www.npmjs.com/package/mellotron",
-  "main": "dist/mellotron.js",
+  "main": "dist/mellotron.min.js",
+  "unpkg": "index.js",
   "scripts": {
     "prebuild": "rimraf ./dist",
     "build": "npm-run-all --parallel build:*",

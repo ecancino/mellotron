@@ -1,4 +1,4 @@
-# [mellotron](https://www.npmjs.com/package/mellotron) *0.1.7*
+# [mellotron](https://www.npmjs.com/package/mellotron) *0.1.8*
 
 > Synthetic string orchestra. Curated list of string manipulation curried functions
 ```
