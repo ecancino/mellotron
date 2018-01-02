@@ -1,0 +1,55 @@
+# [{{title}}]({{pkg.homepage}}) {{#if pkg.version}}*{{pkg.version}}*{{/if}}
+
+> {{description}}
+```
+  yarn add {{title}}
+```
+```
+  npm install {{title}}
+```
+
+{{#each files}}
+{{#each methods}}
+> [{{name}}](#{{name}})
+{{/each}}
+{{/each}}
+
+
+{{#each files}}
+{{#each methods}}
+<a id="{{name}}"></a>
+## {{name}}({{params}}) {{#if isPrivate}} *private method*{{/if}}
+{{{description}}}
+
+{{{body}}}
+
+{{#if tags.param}}
+
+##### Parameters
+
+| Name | Type | Description |  |
+| ---- | ---- | ----------- | -------- |
+{{#each tags.param}}
+| {{name}} | {{#each types}}`{{{.}}}` {{/each}} | {{description}} | {{#if isOptional}}*Optional*{{else}}&nbsp;{{/if}} |
+{{/each}}
+
+{{/if}}
+
+{{#if tags.example}}
+##### Examples
+  {{#each tags.example}}
+```javascript
+{{{.}}}
+```
+  {{/each}}
+{{/if}}
+
+##### Returns
+{{#if tags.return}}
+  {{#each tags.return}}
+- {{#each types}}`{{.}}` {{/each}} {{{description}}}
+  {{/each}}
+{{/if}}
+
+{{/each}}
+{{/each}}
