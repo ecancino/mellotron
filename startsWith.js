@@ -8,6 +8,10 @@
  * @example
  * startsWith('a', 'abc');
  * // => true
+ *
+ * const startsWithM = startsWith('M');
+ * startsWithM('Mellotron');
+ * // => true
  */
 const startsWith = require('lodash/fp/startsWith')
 module.exports = startsWith

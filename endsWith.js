@@ -8,6 +8,10 @@
  * @example
  * endsWith('c', 'abc');
  * // => true
+ *
+ * const endsWithR = endsWith('r');
+ * endsWithR('bar');
+ * // => true
  */
 const endsWith = require('lodash/fp/endsWith')
 module.exports = endsWith

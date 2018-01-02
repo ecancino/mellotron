@@ -9,8 +9,10 @@
  * split('.', 'a.b.c.xyz.d');
  * // => ['a', 'b', 'c', 'xyz', 'd']
  *
- * split('/', '/usr/local/bin/node');
- * // => ['', 'usr', 'local', 'bin', 'node']
+ * const tail = ary => ary.slice(1);
+ * const path = split('/');
+ * tail(path('/usr/local/bin/node'));
+ * // => [usr', 'local', 'bin', 'node']
  */
 const split = require('ramda/src/split')
 module.exports = split

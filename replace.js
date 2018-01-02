@@ -10,8 +10,8 @@
  * replace('foo', 'bar', 'foo foo foo');
  * // => 'bar foo foo'
  *
- * replace(/foo/g, 'bar', 'foo foo foo');
- * // => 'bar bar bar'
+ * const censor = replace(/(bad)/g, '***');
+ * censor('Maybe bad words')
  */
 const replace = require('ramda/src/replace')
 module.exports = replace

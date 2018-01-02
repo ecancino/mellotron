@@ -15,11 +15,11 @@
  * slugify('some String', '_');
  * // => 'some_String'
  *
- * slugify(`O Brother, Where Art Thou?`, { remove: /[,?]/g, replacement: '|', lower: true })
+ * slugify(`O Brother, Where Art Thou?`, { remove: /[,?]/g, replacement: '|', lower: true });
  * // => 'o|brother|where|art|thou'
  *
- * slugify.extend({ '☢': 'radioactive' })
- * slugify('unicode ♥ is ☢')
+ * slugify.extend({ '☢': 'radioactive' });
+ * slugify('unicode ♥ is ☢');
  * // => 'unicode-love-is-radioactive'
  */
 const slugify = require('slugify')

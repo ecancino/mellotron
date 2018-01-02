@@ -5,7 +5,7 @@
  * @param {string} [string=''] The string to convert.
  * @returns {string} Returns the kebab cased string.
  * @example
- * kebabCase('Foo Bar')
+ * kebabCase('Foo Bar');
  * // => 'foo-bar'
  *
  * kebabCase('__FOO_BAR__');

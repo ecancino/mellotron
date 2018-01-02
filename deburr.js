@@ -8,5 +8,5 @@
  * deburr('déjà vu');
  * // => 'deja vu'
  */
- const deburr = require('lodash/fp/deburr')
- module.exports = deburr
+const deburr = require('lodash/fp/deburr')
+module.exports = deburr

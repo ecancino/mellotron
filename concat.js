@@ -8,6 +8,10 @@
  * @example
  * concat('ABC', 'DEF');
  * // => 'ABCDEF'
+ *
+ * const prefix = concat('cyber');
+ * prefix('space');
+ * // => 'cyberspace'
  */
 const concat = require('ramda/src/concat')
 module.exports = concat
