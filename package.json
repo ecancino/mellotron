@@ -1,6 +1,6 @@
 {
   "name": "mellotron",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "Synthetic string orchestra. Curated list of string manipulation curried functions",
   "homepage": "https://www.npmjs.com/package/mellotron",
   "main": "dist/mellotron.min.js",
@@ -19,7 +19,6 @@
   "license": "MIT",
   "dependencies": {
     "astral-regex": "1.0.0",
-    "capitalize": "1.0.0",
     "chars": "2.2.0",
     "lodash": "4.17.4",
     "querystring": "0.2.0",

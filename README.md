@@ -1,4 +1,4 @@
-# [mellotron](https://www.npmjs.com/package/mellotron) *0.1.9*
+# [mellotron](https://www.npmjs.com/package/mellotron) *0.1.10*
 
 > Synthetic string orchestra. Curated list of string manipulation curried functions
 ```
@@ -64,8 +64,8 @@ camelCase('Foo Bar');
 
 <a id="capitalize"></a>
 ## capitalize([string&#x3D;&#x27;&#x27;]) 
-Capitalize the first letter of a `string`, or all words in a `string`.
-From [capitalize](https://github.com/grncdr/js-capitalize)
+Capitalize the first letter of a `string`.
+From [lodash/capitalize](https://lodash.com/docs/4.17.4#capitalize)
 
 
 
@@ -81,9 +81,6 @@ From [capitalize](https://github.com/grncdr/js-capitalize)
 ```javascript
 capitalize('united states');
 // => 'United states'
-
-capitalize.words('united states');
-// => 'United States'
 ```
 
 ##### Returns
