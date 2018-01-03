@@ -1,26 +1,15 @@
 /**
- * Coerces foreign symbols to their english equivalent (check out the [charMap](https://github.com/simov/slugify/blob/master/index.js) for more details).
- * From [slugify](https://github.com/simov/slugify)
+ * Converts `string` to [kebab case](https://en.wikipedia.org/wiki/Letter_case#Special_case_styles).
+ * From [lodash/kebabCase](https://lodash.com/docs/4.17.4#kebabCase)
  * @static
- * @param {string|object} options The string to convert.
- * @param {string} [options.replacement='-'] The string to replace spaces with.
- * @param {string|regex} [options.remove=null] The string to replace spaces with.
- * @param {boolean} [options.lower=false] If the result should be lowercase.
- * @param {string} string The string to convert.
- * @returns {string} Returns the slugified string.
+ * @param {string} [string=''] The string to convert.
+ * @returns {string} Returns the kebab cased string.
  * @example
- * slugify('Some string');
- * // => 'Some-string'
+ * slugify('Foo Bar');
+ * // => 'foo-bar'
  *
- * slugify('some String', '_');
- * // => 'some_String'
- *
- * slugify(`O Brother, Where Art Thou?`, { remove: /[,?]/g, replacement: '|', lower: true });
- * // => 'o|brother|where|art|thou'
- *
- * slugify.extend({ '☢': 'radioactive' });
- * slugify('unicode ♥ is ☢');
- * // => 'unicode-love-is-radioactive'
+ * slugify('__FOO_BAR__');
+ * // => 'foo-bar'
  */
-const slugify = require('slugify')
+const slugify = require('lodash/fp/kebabCase')
 module.exports = slugify

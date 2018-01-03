@@ -1,27 +1,44 @@
 const curry = require('ramda/src/curry')
-const concat = require('ramda/src/concat')
-const stringFormat = require('string-format')
+const match = require('ramda/src/match')
+const replace = require('ramda/src/replace')
+const compose = require('ramda/src/compose')
+const slice = require('ramda/src/slice')
+const reduce = require('ramda/src/reduce')
+const pathOr = require('ramda/src/pathOr')
+const split = require('ramda/src/split')
+const useWith = require('ramda/src/useWith')
+
+const toPath = compose(split('.'), slice(1, -1))
+const getValue = useWith(pathOr(''), [ toPath ])
+const findSubs = match(/\{(.*?)\}/g)
+const placeValues = values => (partial, value) => replace(value, getValue(value, values), partial)
 
 /**
  * Values are interpolated on a template `string`.
- * From [string-format](https://github.com/davidchambers/string-format)
  * @static
  * @param {string} template The string to inspect.
- * @param {string[]} * List of values to be interpolated
+ * @param {Array|Object} values List of values to be interpolated
  * @returns {string} Returns the result of replacing each {…} placeholder in the template string with its corresponding replacement.
  * @example
- * format('Hello, {}!', ['Alice']);
- * // => 'Hello, Alice!'
+ * // Allows creating templates:
+ * const readMessages = format('{0}, you have {1} unread message{2}')
+ * readMessages(['Holly', 2, 's'])
+ * // => 'Holly, you have 2 unread messages'
  *
  * // Unmatched placeholders produce no output:
- * format('{0}, you have {1} unread message{2}', ['Steve', 1]);
+ * readMessages(['Steve', 1])
  * // => 'Steve, you have 1 unread message'
  *
- * // Allows creating templates:
- * const template = format("The name's {1}. {0} {1}.");
- * template(['James', 'Bond']) // => 'The name's Bond. James Bond.'
- * template(['David', 'Chambers']) // => 'The name's Chambers. David Chambers.'
+ * // Supports property access via dot notation
+ * const bobby = { first: 'Bobby', last: 'Fischer' };
+ * const garry = { first: 'Garry', last: 'Kasparov' };
+ * format('{0.first} {0.last} vs. {1.first} {1.last}', [bobby, garry])
+ * // => 'Bobby Fischer vs. Garry Kasparov'
+ *
+ * // Supports property access via object property
+ * const jamesBond = { firstname: 'James', lastname: 'Bond' };
+ * format('The name is {lastname}. {firstname} {lastname}.', jamesBond)
+ * // => 'The name is Bond. James Bond.'
  */
-
-const format = curry((template, replacements) => stringFormat.apply(null, concat([template], replacements)))
+const format = curry((template, values) => reduce(placeValues(values), template, findSubs(template)))
 module.exports = format

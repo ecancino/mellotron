@@ -9,7 +9,6 @@
 ```
 
 ## Methods
-> [camelCase](#camelCase)
 > [capitalize](#capitalize)
 > [concat](#concat)
 > [deburr](#deburr)
@@ -19,9 +18,9 @@
 > [fromURL](#fromURL)
 > [isString](#isString)
 > [join](#join)
-> [kebabCase](#kebabCase)
 > [leftPad](#leftPad)
 > [length](#length)
+> [match](#match)
 > [pad](#pad)
 > [replace](#replace)
 > [reverse](#reverse)
@@ -29,6 +28,7 @@
 > [slugify](#slugify)
 > [split](#split)
 > [startsWith](#startsWith)
+> [test](#test)
 > [toLower](#toLower)
 > [toQuery](#toQuery)
 > [toString](#toString)
@@ -37,30 +37,6 @@
 > [trim](#trim)
 > [trimLeft](#trimLeft)
 > [trimRight](#trimRight)
-
-<a id="camelCase"></a>
-## camelCase([string&#x3D;&#x27;&#x27;]) 
-Converts `string` to [camel case](https://en.wikipedia.org/wiki/CamelCase).
-From [lodash/camelCase](https://lodash.com/docs/4.17.4#camelCase)
-
-
-
-
-##### Parameters
-
-| Name | Type | Description |  |
-| ---- | ---- | ----------- | -------- |
-| string&#x3D;&#x27;&#x27; | `string`  | The string to convert. | *Optional* |
-
-
-##### Examples
-```javascript
-camelCase('Foo Bar');
-// => 'fooBar'
-```
-
-##### Returns
-- `string`  Returns the camel cased string.
 
 <a id="capitalize"></a>
 ## capitalize([string&#x3D;&#x27;&#x27;]) 
@@ -169,9 +145,8 @@ endsWithR('bar');
 - `boolean`  Returns `true` if `string` ends with `target`, else `false`.
 
 <a id="format"></a>
-## format(template, *) 
+## format(template, values) 
 Values are interpolated on a template `string`.
-From [string-format](https://github.com/davidchambers/string-format)
 
 
 
@@ -181,22 +156,30 @@ From [string-format](https://github.com/davidchambers/string-format)
 | Name | Type | Description |  |
 | ---- | ---- | ----------- | -------- |
 | template | `string`  | The string to inspect. | &nbsp; |
-| * | `Array.<string>`  | List of values to be interpolated | &nbsp; |
+| values | `Array` `Object`  | List of values to be interpolated | &nbsp; |
 
 
 ##### Examples
 ```javascript
-format('Hello, {}!', ['Alice']);
-// => 'Hello, Alice!'
+// Allows creating templates:
+const readMessages = format('{0}, you have {1} unread message{2}')
+readMessages(['Holly', 2, 's'])
+// => 'Holly, you have 2 unread messages'
 
 // Unmatched placeholders produce no output:
-format('{0}, you have {1} unread message{2}', ['Steve', 1]);
+readMessages(['Steve', 1])
 // => 'Steve, you have 1 unread message'
 
-// Allows creating templates:
-const template = format("The name's {1}. {0} {1}.");
-template(['James', 'Bond']) // => 'The name's Bond. James Bond.'
-template(['David', 'Chambers']) // => 'The name's Chambers. David Chambers.'
+// Supports property access via dot notation
+const bobby = { first: 'Bobby', last: 'Fischer' };
+const garry = { first: 'Garry', last: 'Kasparov' };
+format('{0.first} {0.last} vs. {1.first} {1.last}', [bobby, garry])
+// => 'Bobby Fischer vs. Garry Kasparov'
+
+// Supports property access via object property
+const jamesBond = { firstname: 'James', lastname: 'Bond' };
+format('The name is {lastname}. {firstname} {lastname}.', jamesBond)
+// => 'The name is Bond. James Bond.'
 ```
 
 ##### Returns
@@ -330,33 +313,6 @@ piper(['Pied', 'Piper', 'of', 'Hamelin']);
 ##### Returns
 - `string`  Returns the `string` made by concatenating `xs` with `separator`.
 
-<a id="kebabCase"></a>
-## kebabCase([string&#x3D;&#x27;&#x27;]) 
-Converts `string` to [kebab case](https://en.wikipedia.org/wiki/Letter_case#Special_case_styles).
-From [lodash/kebabCase](https://lodash.com/docs/4.17.4#kebabCase)
-
-
-
-
-##### Parameters
-
-| Name | Type | Description |  |
-| ---- | ---- | ----------- | -------- |
-| string&#x3D;&#x27;&#x27; | `string`  | The string to convert. | *Optional* |
-
-
-##### Examples
-```javascript
-kebabCase('Foo Bar');
-// => 'foo-bar'
-
-kebabCase('__FOO_BAR__');
-// => 'foo-bar'
-```
-
-##### Returns
-- `string`  Returns the kebab cased string.
-
 <a id="leftPad"></a>
 ## leftPad(length, string) 
 Pads `string` on the left side if it's shorter than `length`. Padding characters are truncated if they exceed `length`.
@@ -383,7 +339,7 @@ leftPad(6, 'abc');
 - `string`  Returns the padded string.
 
 <a id="length"></a>
-## length(input) 
+## length(s) 
 Length of a string by counting [astral symbols](https://web.archive.org/web/20150721114550/http://www.tlg.uci.edu/~opoudjis/unicode/unicode_astral.html) and ignoring [ANSI escape codes](https://github.com/sindresorhus/strip-ansi).
 From [string-length](https://github.com/sindresorhus/string-length)
 
@@ -394,7 +350,7 @@ From [string-length](https://github.com/sindresorhus/string-length)
 
 | Name | Type | Description |  |
 | ---- | ---- | ----------- | -------- |
-| input | `string`  | The string to count. | &nbsp; |
+| s | `string`  | The string to count. | &nbsp; |
 
 
 ##### Examples
@@ -408,6 +364,31 @@ length('\u001B[1municorn\u001B[22m');
 
 ##### Returns
 - `number`  Returns length of the string.
+
+<a id="match"></a>
+## match(rx, str) 
+Tests a regular expression against a `string`.
+From [ramda/match](http://ramdajs.com/docs/#match)
+
+
+
+
+##### Parameters
+
+| Name | Type | Description |  |
+| ---- | ---- | ----------- | -------- |
+| rx | `string`  | A regular expression or a substring to match. | &nbsp; |
+| str | `string`  | The string to match against. | &nbsp; |
+
+
+##### Examples
+```javascript
+match(/([a-z]a)/g, 'bananas');
+// => ['ba', 'na', 'na']
+```
+
+##### Returns
+- `Array`  The list of matches or empty `array`.
 
 <a id="pad"></a>
 ## pad(length, string) 
@@ -516,9 +497,9 @@ rightPad(6, 'abc');
 - `string`  Returns the padded string.
 
 <a id="slugify"></a>
-## slugify(options, string) 
-Coerces foreign symbols to their english equivalent (check out the [charMap](https://github.com/simov/slugify/blob/master/index.js) for more details).
-From [slugify](https://github.com/simov/slugify)
+## slugify([string&#x3D;&#x27;&#x27;]) 
+Converts `string` to [kebab case](https://en.wikipedia.org/wiki/Letter_case#Special_case_styles).
+From [lodash/kebabCase](https://lodash.com/docs/4.17.4#kebabCase)
 
 
 
@@ -527,31 +508,20 @@ From [slugify](https://github.com/simov/slugify)
 
 | Name | Type | Description |  |
 | ---- | ---- | ----------- | -------- |
-| options | `string` `object`  | The string to convert. | &nbsp; |
-| options.replacement&#x3D;&#x27;-&#x27; | `string`  | The string to replace spaces with. | *Optional* |
-| options.remove&#x3D;null | `string` `regex`  | The string to replace spaces with. | *Optional* |
-| options.lower&#x3D;false | `boolean`  | If the result should be lowercase. | *Optional* |
-| string | `string`  | The string to convert. | &nbsp; |
+| string&#x3D;&#x27;&#x27; | `string`  | The string to convert. | *Optional* |
 
 
 ##### Examples
 ```javascript
-slugify('Some string');
-// => 'Some-string'
+slugify('Foo Bar');
+// => 'foo-bar'
 
-slugify('some String', '_');
-// => 'some_String'
-
-slugify(`O Brother, Where Art Thou?`, { remove: /[,?]/g, replacement: '|', lower: true });
-// => 'o|brother|where|art|thou'
-
-slugify.extend({ '☢': 'radioactive' });
-slugify('unicode ♥ is ☢');
-// => 'unicode-love-is-radioactive'
+slugify('__FOO_BAR__');
+// => 'foo-bar'
 ```
 
 ##### Returns
-- `string`  Returns the slugified string.
+- `string`  Returns the kebab cased string.
 
 <a id="split"></a>
 ## split(sep, str) 
@@ -611,6 +581,34 @@ startsWithM('Mellotron');
 
 ##### Returns
 - `boolean`  Returns `true` if `string` starts with `target`, else `false`.
+
+<a id="test"></a>
+## test(pattern, str) 
+Determines whether a given `string` matches a given regular expression.
+From [ramda/test](http://ramdajs.com/docs/#test)
+
+
+
+
+##### Parameters
+
+| Name | Type | Description |  |
+| ---- | ---- | ----------- | -------- |
+| pattern | `string`  | A regular expression or a substring to match. | &nbsp; |
+| str | `string`  | The string to match against. | &nbsp; |
+
+
+##### Examples
+```javascript
+test(/^x/, 'xyz');
+// => true
+
+test(/^y/, 'xyz');
+// => false
+```
+
+##### Returns
+- `boolean`  The result of the test.
 
 <a id="toLower"></a>
 ## toLower(str) 
