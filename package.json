@@ -7,12 +7,12 @@
   "main": "index.js",
   "scripts": {
     "rmrf": "rimraf ./dist",
-    "prebuild": "yarn rmrf & yarn test",
-    "build": "yarn build:main & yarn build:min",
+    "prebuild": "npm-run-all rmrf test",
+    "build": "npm-run-all --parallel build:**",
     "build:main": "webpack --output-filename mellotron.js",
     "build:min": "webpack --output-filename mellotron.min.js -p",
     "dox": "doxdox '*.js' --layout ./template.hbs --output README.md",
-    "test": "jest ./test"
+    "test": "jest"
   },
   "keywords": [
     "string"
@@ -23,13 +23,13 @@
     "lodash": "4.17.4",
     "querystring": "0.2.0",
     "ramda": "0.23.0",
+    "charcount": "1.0.0",
     "url": "0.11.0"
   },
   "devDependencies": {
     "babel-cli": "6.26.0",
     "babel-loader": "7.1.2",
     "babel-preset-env": "1.6.1",
-    "charcount": "1.0.0",
     "doxdox": "2.0.3",
     "eslint": "4.14.0",
     "eslint-config-standard": "10.2.1",
@@ -38,6 +38,7 @@
     "eslint-plugin-promise": "3.5.0",
     "eslint-plugin-standard": "3.0.1",
     "jest": "22.0.4",
+    "npm-run-all": "4.1.2",
     "rimraf": "2.6.2",
     "webpack": "3.10.0"
   },
