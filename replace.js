@@ -7,11 +7,12 @@
  * @param {string} str The String to do the search and replacement in.
  * @returns {string} Returns the resulted `string`.
  * @example
- * replace('foo', 'bar', 'foo foo foo');
- * // => 'bar foo foo'
+ * replace(/foo/g, 'bar', 'foo foo foo');
+ * // => 'bar bar bar'
  *
- * const censor = replace(/(bad)/g, '***');
- * censor('Maybe bad words')
+ * const censor = replace('the night', 'some time');
+ * censor("Let's spend the night together")
+ * // => "Let's spend some time together"
  */
 const replace = require('ramda/src/replace')
 module.exports = replace

@@ -16,8 +16,8 @@ const placeValues = values => (partial, value) => replace(value, getValue(value,
 /**
  * Values are interpolated on a template `string`.
  * @static
- * @param {string} template The string to inspect.
- * @param {Array|Object} values List of values to be interpolated
+ * @param {string} template The `string` with placeholders.
+ * @param {(*[]|Object)} values Values to be interpolated
  * @returns {string} Returns the result of replacing each {…} placeholder in the template string with its corresponding replacement.
  * @example
  * // Allows creating templates:

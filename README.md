@@ -1,4 +1,4 @@
-# [mellotron](https://www.npmjs.com/package/mellotron) *0.2.1*
+# [mellotron](https://www.npmjs.com/package/mellotron) *0.2.3*
 
 > Synthetic string orchestra. Curated list of string manipulation curried functions
 ```
@@ -185,8 +185,8 @@ Values are interpolated on a template `string`.
 
 | Name | Type | Description |  |
 | ---- | ---- | ----------- | -------- |
-| template | `string`  | The string to inspect. | &nbsp; |
-| values | `Array` `Object`  | List of values to be interpolated | &nbsp; |
+| template | `string`  | The &#x60;string&#x60; with placeholders. | &nbsp; |
+| values | `Array.<*>` `Object`  | Values to be interpolated | &nbsp; |
 
 
 ##### Examples
@@ -462,11 +462,12 @@ From [ramda/replace](http://ramdajs.com/docs/#replace)
 
 ##### Examples
 ```javascript
-replace('foo', 'bar', 'foo foo foo');
-// => 'bar foo foo'
+replace(/foo/g, 'bar', 'foo foo foo');
+// => 'bar bar bar'
 
-const censor = replace(/(bad)/g, '***');
-censor('Maybe bad words')
+const censor = replace('the night', 'some time');
+censor("Let's spend the night together")
+// => "Let's spend some time together"
 ```
 
 ##### Returns
