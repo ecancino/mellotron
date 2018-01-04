@@ -1,4 +1,4 @@
-# [mellotron](https://www.npmjs.com/package/mellotron) *0.2.3*
+# [mellotron](https://www.npmjs.com/package/mellotron) *0.2.4*
 
 > Synthetic string orchestra. Curated list of string manipulation curried functions
 ```
@@ -368,8 +368,8 @@ leftPad(6, 'abc');
 
 <a id="length"></a>
 ## length(s) 
-Length of a string by counting [astral symbols](https://web.archive.org/web/20150721114550/http://www.tlg.uci.edu/~opoudjis/unicode/unicode_astral.html) and ignoring [ANSI escape codes](https://github.com/sindresorhus/strip-ansi).
-From [string-length](https://github.com/sindresorhus/string-length)
+Count visual length of javascript string.
+From [charcount](https://github.com/nodeca/charcount)
 
 
 
@@ -383,11 +383,8 @@ From [string-length](https://github.com/sindresorhus/string-length)
 
 ##### Examples
 ```javascript
-length('🐴');
-// => 1
-
-length('\u001B[1municorn\u001B[22m');
-// => 7
+length('🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒');
+// => 12
 ```
 
 ##### Returns

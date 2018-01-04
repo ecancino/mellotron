@@ -1,15 +1,12 @@
 /**
- * Length of a string by counting [astral symbols](https://web.archive.org/web/20150721114550/http://www.tlg.uci.edu/~opoudjis/unicode/unicode_astral.html) and ignoring [ANSI escape codes](https://github.com/sindresorhus/strip-ansi).
- * From [string-length](https://github.com/sindresorhus/string-length)
+ * Count visual length of javascript string.
+ * From [charcount](https://github.com/nodeca/charcount)
  * @static
  * @param {string} s The string to count.
  * @returns {number} Returns length of the string.
  * @example
- * length('🐴');
- * // => 1
- *
- * length('\u001B[1municorn\u001B[22m');
- * // => 7
+ * length('🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒🐒');
+ * // => 12
  */
 const length = require('charcount')
 module.exports = length
