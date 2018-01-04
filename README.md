@@ -1,4 +1,4 @@
-# [mellotron](https://www.npmjs.com/package/mellotron) *0.2.4*
+# [mellotron](https://www.npmjs.com/package/mellotron) *0.2.5*
 
 > Synthetic string orchestra. Curated list of string manipulation curried functions
 ```
@@ -487,11 +487,8 @@ From [ramda/reverse](http://ramdajs.com/docs/#reverse)
 
 ##### Examples
 ```javascript
-reverse('abc');
-// => 'cba'
-
-reverse('ab');
-// => 'ba'
+reverse('stressed');
+// => 'desserts'
 ```
 
 ##### Returns
@@ -539,11 +536,8 @@ From [lodash/kebabCase](https://lodash.com/docs/4.17.4#kebabCase)
 
 ##### Examples
 ```javascript
-slugify('Foo Bar');
-// => 'foo-bar'
-
-slugify('__FOO_BAR__');
-// => 'foo-bar'
+slugify('This, That and the Other! An Outré Collection');
+// => 'this-that-and-the-other-an-outre-collection'
 ```
 
 ##### Returns
@@ -567,13 +561,9 @@ From [ramda/split](http://ramdajs.com/docs/#split)
 
 ##### Examples
 ```javascript
-split('.', 'a.b.c.xyz.d');
-// => ['a', 'b', 'c', 'xyz', 'd']
-
-const tail = ary => ary.slice(1);
 const path = split('/');
-tail(path('/usr/local/bin/node'));
-// => [usr', 'local', 'bin', 'node']
+path('/usr/local/bin/node');
+// => ['', 'usr', 'local', 'bin', 'node']
 ```
 
 ##### Returns

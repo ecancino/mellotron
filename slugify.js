@@ -5,11 +5,8 @@
  * @param {string} [string=''] The string to convert.
  * @returns {string} Returns the kebab cased string.
  * @example
- * slugify('Foo Bar');
- * // => 'foo-bar'
- *
- * slugify('__FOO_BAR__');
- * // => 'foo-bar'
+ * slugify('This, That and the Other! An Outré Collection');
+ * // => 'this-that-and-the-other-an-outre-collection'
  */
 const slugify = require('lodash/fp/kebabCase')
 module.exports = slugify

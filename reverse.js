@@ -5,11 +5,8 @@
  * @param {string} list The string to reverse.
  * @returns {string} Returns a new string with the characters in reverse order.
  * @example
- * reverse('abc');
- * // => 'cba'
- *
- * reverse('ab');
- * // => 'ba'
+ * reverse('stressed');
+ * // => 'desserts'
  */
 const reverse = require('ramda/src/reverse')
 module.exports = reverse
