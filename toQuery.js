@@ -6,7 +6,6 @@
  * @param {string} [sep='&'] The substring to delimit key and value pairs.
  * @param {string} [eq='='] The substring to delimit keys and values.
  * @param {Object} [options]
- * @param {Function} [options.decodeURIComponent=querystring.unescape()] The decoding function.
  * @returns {Object} Returns the parsed URL query string (str) into a collection of key and value pairs.
  * @example
  * toQuery({ foo: 'bar', baz: ['qux', 'quux'], corge: '' });

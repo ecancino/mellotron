@@ -1,4 +1,4 @@
-# [mellotron](https://www.npmjs.com/package/mellotron) *0.2.0*
+# [mellotron](https://www.npmjs.com/package/mellotron) *0.2.1*
 
 > Synthetic string orchestra. Curated list of string manipulation curried functions
 ```
@@ -11,6 +11,7 @@
 ## Methods
 > [capitalize](#capitalize)
 > [concat](#concat)
+> [contains](#contains)
 > [deburr](#deburr)
 > [endsWith](#endsWith)
 > [format](#format)
@@ -90,6 +91,35 @@ prefix('space');
 
 ##### Returns
 - `string`  Returns the result of concatenating the given `strings`.
+
+<a id="contains"></a>
+## contains(a, list) 
+Inserts the separator `string` between each element and concatenating all the elements into a single `string`.
+From [ramda/contains](http://ramdajs.com/docs/#contains)
+
+
+
+
+##### Parameters
+
+| Name | Type | Description |  |
+| ---- | ---- | ----------- | -------- |
+| a | `string`  | The item to compare against. | &nbsp; |
+| list | `string`  | The string to consider | &nbsp; |
+
+
+##### Examples
+```javascript
+contains('á', 'Zárate')
+// => true
+
+const taco = contains('salsa');
+taco('Un taco sin salsa no es taco');
+// => true
+```
+
+##### Returns
+- `boolean`  Returns `true` if an equivalent item is in list, `false` otherwise.
 
 <a id="deburr"></a>
 ## deburr([string&#x3D;&#x27;&#x27;]) 
@@ -201,8 +231,6 @@ From [querystring/parse](https://nodejs.org/api/querystring.html#querystring_que
 | sep&#x3D;&#x27;&amp;&#x27; | `string`  | The substring to delimit key and value pairs. | *Optional* |
 | eq&#x3D;&#x27;&#x3D;&#x27; | `string`  | The substring to delimit keys and values. | *Optional* |
 | options | `Object`  |  | *Optional* |
-| options.decodeURIComponent&#x3D;querystring.unescape() | `Function`  | The decoding function. | *Optional* |
-| options.maxKeys&#x3D;1000 | `Function`  | Maximum number of keys to parse. 0 to remove key counting limitations. | *Optional* |
 
 
 ##### Examples
@@ -650,7 +678,6 @@ From [querystring/stringify](https://nodejs.org/api/querystring.html#querystring
 | sep&#x3D;&#x27;&amp;&#x27; | `string`  | The substring to delimit key and value pairs. | *Optional* |
 | eq&#x3D;&#x27;&#x3D;&#x27; | `string`  | The substring to delimit keys and values. | *Optional* |
 | options | `Object`  |  | *Optional* |
-| options.decodeURIComponent&#x3D;querystring.unescape() | `Function`  | The decoding function. | *Optional* |
 
 
 ##### Examples

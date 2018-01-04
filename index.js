@@ -2,6 +2,7 @@
 
 module.exports.capitalize = require('./capitalize')
 module.exports.concat = require('./concat')
+module.exports.contains = require('./contains')
 module.exports.deburr = require('./deburr')
 module.exports.endsWith = require('./endsWith')
 module.exports.format = require('./format')
