@@ -1,4 +1,4 @@
-# [mellotron](https://www.npmjs.com/package/mellotron) *0.2.5*
+# [mellotron](https://www.npmjs.com/package/mellotron) *0.2.6*
 
 > Synthetic string orchestra. Curated list of string manipulation curried functions
 ```
@@ -18,6 +18,7 @@
 > [fromQuery](#fromQuery)
 > [fromURL](#fromURL)
 > [isString](#isString)
+> [isURL](#isURL)
 > [join](#join)
 > [leftPad](#leftPad)
 > [length](#length)
@@ -311,6 +312,36 @@ isString(new String(''));
 
 ##### Returns
 - `boolean`  Returns if the value is a String.
+
+<a id="isURL"></a>
+## isURL(string) 
+Loosely validate a URL.
+From [is-url](https://github.com/segmentio/is-url)
+
+
+
+
+##### Parameters
+
+| Name | Type | Description |  |
+| ---- | ---- | ----------- | -------- |
+| string | `string`  | The URL string to validate. | &nbsp; |
+
+
+##### Examples
+```javascript
+isURL('http://symbolics.com');
+// => true
+
+isURL('http://')
+// => false
+
+isURL('bbn.com')
+// => false
+```
+
+##### Returns
+- `Object`  Returns true if string is a URL, false otherwise.
 
 <a id="join"></a>
 ## join(separator, xs) 

@@ -1,6 +1,6 @@
 {
   "name": "mellotron",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "Synthetic string orchestra. Curated list of string manipulation curried functions",
   "homepage": "https://www.npmjs.com/package/mellotron",
   "unpkg": "dist/mellotron.min.js",
@@ -19,10 +19,11 @@
   "author": "Eduardo Cancino <eduardo.cancino@ciudadde.mx>",
   "license": "MIT",
   "dependencies": {
+    "charcount": "1.0.0",
+    "is-url": "1.2.2",
     "lodash": "4.17.4",
     "querystring": "0.2.0",
     "ramda": "0.23.0",
-    "charcount": "1.0.0",
     "url": "0.11.0"
   },
   "devDependencies": {
