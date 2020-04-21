@@ -27,6 +27,7 @@
     "url": "0.11.0"
   },
   "devDependencies": {
+    "acorn": "5.7.4",
     "babel-cli": "6.26.0",
     "babel-loader": "7.1.2",
     "babel-preset-env": "1.6.1",
